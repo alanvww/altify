@@ -1,5 +1,7 @@
 import { pipeline } from './loader.js';
 
+const CORS_FIX = 'https://ajr-cors-anywhere-96b76cfe9ccb.herokuapp.com/';
+
 const speaker_embeddings =
 	'https://huggingface.co/datasets/Xenova/transformers.js-docs/resolve/main/speaker_embeddings.bin';
 
@@ -115,7 +117,7 @@ function handleURL(url) {
 		console.error('Failed to load image from URL.');
 		document.getElementById('caption').innerText = 'Failed to load image.';
 	};
-	img.src = 'https://cors-anywhere.herokuapp.com/' + url;
+	img.src = CORS_FIX + url;
 }
 
 function validateImage(file) {

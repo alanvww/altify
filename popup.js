@@ -6,15 +6,25 @@ const speaker_embeddings =
 	'https://huggingface.co/datasets/Xenova/transformers.js-docs/resolve/main/speaker_embeddings.bin';
 
 async function loadModel() {
-	try {
-		const captioner = await pipeline('image-to-text', 'tarekziade/distilvit');
-		document.getElementById('model-status').innerText = 'Model is ready!';
-		// const synthesizer = await pipeline('text-to-speech', 'Xenova/speecht5_tts');
+	document.getElementById('progress-container').style.display = 'block';
+	document.getElementById('model-status').innerText = 'Loading model...';
+	document.getElementById('model-progress').value = 0;
 
+	try {
+		const updateProgress = (progress) => {
+			document.getElementById('model-progress').value = progress;
+		};
+
+		updateProgress(10); // Initial progress after starting the loading process
+		const captioner = await pipeline('image-to-text', 'tarekziade/distilvit');
+		updateProgress(100); // Set to 100% on successful loading
+		document.getElementById('model-status').innerText = 'Model is ready!';
+		document.getElementById('progress-container').style.display = 'none';
 		return captioner;
 	} catch (error) {
 		console.error('Failed to load the model:', error);
 		document.getElementById('model-status').innerText = 'Failed to load model.';
+		document.getElementById('progress-container').style.display = 'none';
 		return null;
 	}
 }

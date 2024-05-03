@@ -1,14 +1,14 @@
 {
-	"manifest_version": 3,
-	"name": "Draggablify",
-	"version": "1.0",
-	"description": "Changes the background color of the webpage",
-	"permissions": ["activeTab", "scripting"],
-	"background": {
-		"service_worker": "background.js"
-	},
-	"action": {
-		"default_popup": "index.html",
-		"default_icon": {}
-	}
+    "manifest_version": 3,
+    "name": "Altify",
+    "version": "0.1",
+    "description": "Altify is a browser extension that allows you to generate alt text for images on the web.",
+    "permissions": ["activeTab", "scripting"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": {}
+    }
 }

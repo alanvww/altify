@@ -6,7 +6,15 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
 		/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Security-Policy" content="default-src * data: mediastream: blob: filesystem: about: ws: wss: 'unsafe-eval' 'wasm-unsafe-eval' 'unsafe-inline'; 
+		script-src * data: blob: 'unsafe-inline' 'unsafe-eval'; 
+		connect-src * data: blob: 'unsafe-inline'; 
+		img-src * data: blob: 'unsafe-inline'; 
+		frame-src * data: blob: ; 
+		style-src * data: blob: 'unsafe-inline';
+		font-src * data: blob: 'unsafe-inline';
+		frame-ancestors * data: blob: 'unsafe-inline';";
+		">
 		<title>Altify</title>
 		<style>
 			#drop-area {
@@ -41,6 +49,11 @@
 				/>
 			</form>
 			<div id="model-status">Loading model...</div>
+			<div id="progress-container" style="display:none;">
+    <label for="model-progress">Model Loading Progress:</label>
+    <progress id="model-progress" value="0" max="100"></label>
+</div>
+
 			<div id="gallery"></div>
 			<p id="caption"></p>
 			<!-- This will display the caption -->
@@ -52,8 +65,8 @@
 			<button
 				id="clearGallery"
 				onclick="() => {
-					document.getElementById('gallery').innerHTML = '';	
-					document.getElementById('caption').innerHTML = 'Clear!';	
+					document.getElementById('gallery').innerHTML = '';
+					document.getElementById('caption').innerHTML = 'Clear!';
 
 		}"
 			>

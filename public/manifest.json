@@ -1,0 +1,12 @@
+{
+	"manifest_version": 3,
+	"name": "Altify",
+	"version": "0.1",
+	"description": "Altify is a browser extension that allows you to generate alt text for images on the web.",
+	"permissions": ["activeTab", "scripting"],
+	"host_permissions": ["<all_urls>"],
+	"action": {
+		"default_popup": "index.html",
+		"default_icon": {}
+	}
+}

@@ -8,6 +8,8 @@ env.useBrowserCache = true;
 const CORS_PROXY =
 	process.env.CORS_FIX_URL || 'https://cors-anywhere.herokuapp.com/';
 
+console.log(process.env.CORS_FIX_URL)
+
 class Image2TextPipeline {
 	static instance = null;
 

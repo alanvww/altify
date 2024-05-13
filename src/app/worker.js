@@ -15,7 +15,7 @@ class Image2TextPipeline {
 
 	static async getInstance(progress_callback = null) {
 		if (!this.instance) {
-			this.instance = pipeline('image-to-text', 'tarekziade/distilvit', {
+			this.instance = pipeline('image-to-text', 'Mozilla/distilvit', {
 				progress_callback,
 			});
 		}

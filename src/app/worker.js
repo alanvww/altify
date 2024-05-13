@@ -6,16 +6,15 @@ env.allowLocalModels = false;
 env.useBrowserCache = true;
 
 const CORS_PROXY =
-	process.env.CORS_FIX_URL || 'https://cors-anywhere.herokuapp.com/';
-
-console.log(process.env.CORS_FIX_URL)
+	process.env.NEXT_PUBLIC_CORS_FIX_URL ||
+	'https://cors-anywhere.herokuapp.com/';
 
 class Image2TextPipeline {
 	static instance = null;
 
 	static async getInstance(progress_callback = null) {
 		if (!this.instance) {
-			this.instance = pipeline('image-to-text', 'Mozilla/distilvit', {
+			this.instance = pipeline('image-to-text', 'tarekziade/distilvit', {
 				progress_callback,
 			});
 		}
